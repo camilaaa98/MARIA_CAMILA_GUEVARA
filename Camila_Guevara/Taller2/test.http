@@ -1,0 +1,180 @@
+### Página principal
+GET http://localhost:3000
+
+### ===== LECTURAS (3 verbos con 2 rutas cada uno) =====
+
+### Obtener todas las lecturas
+GET http://localhost:3000/lecturas
+
+### Obtener una lectura por ID
+GET http://localhost:3000/lecturas/1
+
+### Crear una nueva lectura
+POST http://localhost:3000/lecturas
+Content-Type: application/json
+
+{
+  "titulo": "El principito",
+  "autor": "Antoine de Saint-Exupéry",
+  "fechaPublicacion": "1943-04-06",
+  "editorial": "Reynal & Hitchcock",
+  "disponible": true,
+  "categoriaId": 1
+}
+
+### Actualizar una lectura
+PUT http://localhost:3000/lecturas/1
+Content-Type: application/json
+
+{
+  "disponible": false
+}
+
+### Eliminar una lectura
+DELETE http://localhost:3000/lecturas/1
+
+### ===== USUARIOS (2 verbos con 2 rutas cada uno) =====
+
+### Obtener todos los usuarios
+GET http://localhost:3000/usuarios
+
+### Obtener un usuario por ID
+GET http://localhost:3000/usuarios/1
+
+### Crear un nuevo usuario
+POST http://localhost:3000/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "Carlos",
+  "apellido": "García",
+  "email": "carlos.garcia@sena.edu.co",
+  "password": "123456",
+  "rolId": 2,
+  "fichaId": 1
+}
+
+### Actualizar un usuario
+PUT http://localhost:3000/usuarios/1
+Content-Type: application/json
+
+{
+  "nombre": "Juan Carlos"
+}
+
+### ===== CATEGORÍAS (2 verbos con 2 rutas cada uno) =====
+
+### Obtener todas las categorías
+GET http://localhost:3000/categorias
+
+### Obtener una categoría por ID
+GET http://localhost:3000/categorias/1
+
+### Crear una nueva categoría
+POST http://localhost:3000/categorias
+Content-Type: application/json
+
+{
+  "nombre": "Matemáticas",
+  "descripcion": "Libros de matemáticas y estadística"
+}
+
+### Actualizar una categoría
+PUT http://localhost:3000/categorias/1
+Content-Type: application/json
+
+{
+  "descripcion": "Libros de literatura clásica y contemporánea actualizada"
+}
+
+### ===== FORMACIONES (2 verbos con 2 rutas cada uno) =====
+
+### Obtener todas las formaciones
+GET http://localhost:3000/formaciones
+
+### Obtener una formación por ID
+GET http://localhost:3000/formaciones/1
+
+### Crear una nueva formación
+POST http://localhost:3000/formaciones
+Content-Type: application/json
+
+{
+  "nombre": "Sistemas",
+  "descripcion": "Formación en sistemas informáticos",
+  "duracion": 18
+}
+
+### Actualizar una formación
+PUT http://localhost:3000/formaciones/1
+Content-Type: application/json
+
+{
+  "duracion": 15
+}
+
+### ===== FICHAS (2 verbos con 2 rutas cada uno) =====
+
+### Obtener todas las fichas
+GET http://localhost:3000/fichas
+
+### Obtener una ficha por ID
+GET http://localhost:3000/fichas/1
+
+### Crear una nueva ficha
+POST http://localhost:3000/fichas
+Content-Type: application/json
+
+{
+  "codigo": "2395751",
+  "formacionId": 1,
+  "fechaInicio": "2024-01-15",
+  "fechaFin": "2025-01-15"
+}
+
+### Actualizar una ficha
+PUT http://localhost:3000/fichas/1
+Content-Type: application/json
+
+{
+  "codigo": "2395749-A"
+}
+
+### ===== ROLES (2 verbos con 2 rutas cada uno) =====
+
+### Obtener todos los roles
+GET http://localhost:3000/roles
+
+### Obtener un rol por ID
+GET http://localhost:3000/roles/1
+
+### Crear un nuevo rol
+POST http://localhost:3000/roles
+Content-Type: application/json
+
+{
+  "nombre": "Bibliotecario",
+  "descripcion": "Personal encargado de la gestión de la biblioteca"
+}
+
+### Actualizar un rol
+PUT http://localhost:3000/roles/1
+Content-Type: application/json
+
+{
+  "descripcion": "Acceso completo al sistema de biblioteca"
+}
+
+### ===== IMÁGENES ESTÁTICAS =====
+
+### Logo principal
+GET http://localhost:3000/images/logo.png
+
+### Imagen del libro
+GET http://localhost:3000/images/libro.png
+
+### Imagen de sesión
+GET http://localhost:3000/images/sesion.jpg
+
+### Imagen de registro
+GET http://localhost:3000/images/registro.jpg
