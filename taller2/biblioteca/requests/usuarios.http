@@ -1,0 +1,37 @@
+### Usuarios
+
+# Listar usuarios
+GET http://localhost:3000/api/usuarios
+
+### Obtener usuario por ID
+GET http://localhost:3000/api/usuarios/1
+
+### Crear usuario
+POST http://localhost:3000/api/usuarios
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "nombre": "Juan",
+  "apellido": "Perez",
+  "email": "juan.perez@example.com",
+  "password": "secret123",
+  "rolId": 1,
+  "fichaId": 1
+}
+
+### Actualizar usuario
+PUT http://localhost:3000/api/usuarios/1
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "nombre": "Juan",
+  "apellido": "Pérez",
+  "email": "juan.perez@example.com",
+  "rolId": 2
+}
+
+### Eliminar usuario
+DELETE http://localhost:3000/api/usuarios/1
+Authorization: Bearer <TOKEN>

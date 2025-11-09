@@ -1,0 +1,33 @@
+### Fichas
+
+# Listar fichas
+GET http://localhost:3000/api/fichas
+
+### Obtener ficha por ID
+GET http://localhost:3000/api/fichas/1
+
+### Crear ficha
+POST http://localhost:3000/api/fichas
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "codigo": "1234567",
+  "formacionId": 1,
+  "fechaInicio": "2025-01-01",
+  "fechaFin": "2025-12-31"
+}
+
+### Actualizar ficha
+PUT http://localhost:3000/api/fichas/1
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "codigo": "1234567-UPDATED",
+  "fechaFin": "2026-06-30"
+}
+
+### Eliminar ficha
+DELETE http://localhost:3000/api/fichas/1
+Authorization: Bearer <TOKEN>

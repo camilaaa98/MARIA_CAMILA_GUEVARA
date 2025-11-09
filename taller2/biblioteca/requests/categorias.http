@@ -1,0 +1,30 @@
+### Categorías
+
+# Listar categorías
+GET http://localhost:3000/api/categorias
+
+### Obtener categoría por ID
+GET http://localhost:3000/api/categorias/1
+
+### Crear categoría
+POST http://localhost:3000/api/categorias
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "nombre": "Novela",
+  "descripcion": "Libros de narrativa ficticia"
+}
+
+### Actualizar categoría
+PUT http://localhost:3000/api/categorias/1
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "descripcion": "Narrativa de ficción"
+}
+
+### Eliminar categoría
+DELETE http://localhost:3000/api/categorias/1
+Authorization: Bearer <TOKEN>
