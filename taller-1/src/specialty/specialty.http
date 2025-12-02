@@ -1,0 +1,8 @@
+POST http://localhost:3000/specialty
+content-type: application/json
+{
+    "specialty_name": "Patología"
+}
+
+GET http://localhost:3000/specialty
+

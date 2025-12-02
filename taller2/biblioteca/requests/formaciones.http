@@ -1,0 +1,32 @@
+### Formaciones
+
+# Listar formaciones
+GET http://localhost:3000/api/formaciones
+
+### Obtener formación por ID
+GET http://localhost:3000/api/formaciones/1
+
+### Crear formación
+POST http://localhost:3000/api/formaciones
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "nombre": "Análisis y Desarrollo de Software",
+  "descripcion": "Programa de formación en desarrollo de software",
+  "duracion": 24
+}
+
+### Actualizar formación
+PUT http://localhost:3000/api/formaciones/1
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "descripcion": "Programa de formación en desarrollo de software (actualizado)",
+  "duracion": 30
+}
+
+### Eliminar formación
+DELETE http://localhost:3000/api/formaciones/1
+Authorization: Bearer <TOKEN>

@@ -1,0 +1,34 @@
+### Auth
+
+# Registrar nuevo usuario
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "nombre": "Camila",
+  "apellido": "Guevara",
+  "email": "camila.guevara+test@example.com",
+  "password": "secret123",
+  "rolId": 1,
+  "fichaId": 1
+}
+
+# Iniciar sesión
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "camila.guevara+test@example.com",
+  "password": "secret123"
+}
+
+# Ejemplo usando Bearer token (copiar el access_token del login)
+# Reemplazar <TOKEN> con el valor real
+POST http://localhost:3000/api/categorias
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "nombre": "Historia",
+  "descripcion": "Libros de historia"
+}

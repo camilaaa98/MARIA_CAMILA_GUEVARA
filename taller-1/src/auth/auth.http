@@ -1,0 +1,16 @@
+## POST login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpassword"
+}
+
+## POST Logout
+
+## POST registrer
+
+## GET profile
+
+## POST logout

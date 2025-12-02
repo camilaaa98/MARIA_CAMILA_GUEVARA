@@ -1,0 +1,28 @@
+### 🟡 Crear una nueva cita
+POST http://localhost:3000/appointment
+Content-Type: application/json
+
+{
+  "date": "2025-10-20",
+  "time": "10:00",
+  "reason": "Chequeo general",
+  "value": 50000,
+  "userId": 1,
+  "petId": 1
+}
+### 🟢 Obtener todas las citas
+GET http://localhost:3000/appointment   
+
+### 🟢 Obtener una cita por ID
+GET http://localhost:3000/appointment/1 
+
+### 🔵 Actualizar una cita existente
+PUT http://localhost:3000/appointment/1
+Content-Type: application/json
+
+{
+  "reason": "Chequeo general",
+  "value": 90000
+}
+### 🔴 Eliminar una cita existente
+DELETE http://localhost:3000/appointment/1

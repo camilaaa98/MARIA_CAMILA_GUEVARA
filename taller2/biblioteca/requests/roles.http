@@ -1,0 +1,30 @@
+### Roles
+
+# Listar roles
+GET http://localhost:3000/api/roles
+
+### Obtener rol por ID
+GET http://localhost:3000/api/roles/1
+
+### Crear rol
+POST http://localhost:3000/api/roles
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "nombre": "Administrador",
+  "descripcion": "Acceso completo al sistema"
+}
+
+### Actualizar rol
+PUT http://localhost:3000/api/roles/1
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "descripcion": "Acceso total y gestión del sistema"
+}
+
+### Eliminar rol
+DELETE http://localhost:3000/api/roles/1
+Authorization: Bearer <TOKEN>
