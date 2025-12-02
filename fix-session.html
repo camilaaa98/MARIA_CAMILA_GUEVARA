@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fix Session - AsistNet</title>
+</head>
+
+<body>
+    <h1>Actualizar Sesión de Instructor</h1>
+    <button onclick="fixSession()">Actualizar Sesión</button>
+    <div id="result"></div>
+
+    <script>
+        async function fixSession() {
+            const resultDiv = document.getElementById('result');
+
+            // Obtener usuario actual
+            const savedUser = localStorage.getItem('asistnet_user');
+            if (!savedUser) {
+                resultDiv.innerHTML = '<p style="color: red;">No hay sesión activa</p>';
+                return;
+            }
+
+            const user = JSON.parse(savedUser);
+            resultDiv.innerHTML = '<p>Usuario actual: ' + JSON.stringify(user, null, 2) + '</p>';
+
+            // Si es instructor y no tiene id_instructor, buscarlo
+            if (user.role === 'instructor' && !user.id_instructor) {
+                resultDiv.innerHTML += '<p>Buscando id_instructor...</p>';
+
+                try {
+                    // Hacer login nuevamente para obtener el id_instructor
+                    const response = await fetch('/YanguasEjercicios/mockups-asist-net/api/auth/login.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            correo: user.email,
+                            password: 'camila123' // Temporal - cambiar por el password correcto
+                        })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.data && result.data.id_instructor) {
+                        user.id_instructor = result.data.id_instructor;
+                        localStorage.setItem('asistnet_user', JSON.stringify(user));
+                        resultDiv.innerHTML += '<p style="color: green;">✅ id_instructor actualizado: ' + user.id_instructor + '</p>';
+                        resultDiv.innerHTML += '<p>Usuario actualizado: ' + JSON.stringify(user, null, 2) + '</p>';
+                        resultDiv.innerHTML += '<p><strong>Ahora refresque el dashboard del instructor</strong></p>';
+                    } else {
+                        resultDiv.innerHTML += '<p style="color: red;">❌ No se pudo obtener id_instructor</p>';
+                    }
+                } catch (error) {
+                    resultDiv.innerHTML += '<p style="color: red;">Error: ' + error.message + '</p>';
+                }
+            } else if (user.id_instructor) {
+                resultDiv.innerHTML += '<p style="color: green;">✅ El usuario ya tiene id_instructor: ' + user.id_instructor + '</p>';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+Leyendo archivo (header=None): C:\wamp64\www\YanguasEjercicios\mockups-asist-net\database\Aprendices.xlsx
+
+=== PRIMERAS 5 FILAS (RAW) ===
+            0   ...                 10
+0  id_aprendiz  ...    nivel_formacion
+1            1  ...  TECNICO-TECNOLOGO
+2            2  ...  TECNICO-TECNOLOGO
+3            3  ...  TECNICO-TECNOLOGO
+4            4  ...  TECNICO-TECNOLOGO
+
+[5 rows x 11 columns]
+
+=== ANÁLISIS DE POSIBLES ENCABEZADOS ===
+Fila 0: ['id_aprendiz', 'tipo_identificacion', 'documento', 'nombre', 'apellido', 'correo', 'id_ficha', 'estado', 90335, 'nombre_programa', 'nivel_formacion']
+Fila 1: [1, 'CC', 1006459050, 'LEIDY DAYANA', 'TRUJILLO CUCHUMBE', 'leydidayana2020@gmail.com', 2277866, 'EN FORMACION', '3214826707', 'GESTIÓN DE EMPRESAS AGROPECUARIAS', 'TECNICO-TECNOLOGO']

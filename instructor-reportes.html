@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Reportes - AsistNet</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="sidebar-logo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" class="sidebar-logo-svg">
+                            <path fill="currentColor" d="M100 40L160 70V130L100 160L40 130V70L100 40Z" />
+                            <circle cx="100" cy="100" r="25" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="sidebar-title">AsistNet</div>
+                        <div class="sidebar-subtitle">Instructor</div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button onclick="window.location.href='instructor-dashboard.html'" class="nav-item">
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    <span>Panel Principal</span>
+                </button>
+                <button onclick="window.location.href='instructor-registrar.html'" class="nav-item">
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                    </svg>
+                    <span>Registrar Asistencia</span>
+                </button>
+                <button onclick="window.location.href='instructor-asistencias.html'" class="nav-item">
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                    <span>Consultar Asistencias</span>
+                </button>
+                <button onclick="window.location.href='instructor-reportes.html'" class="nav-item active">
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span>Generar Reportes</span>
+                </button>
+                <button onclick="authSystem.logout()" class="nav-item">
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    <span>Cerrar Sesión</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1 class="content-title">Generar Reportes</h1>
+                <p class="content-description">Generación de reportes de mis fichas</p>
+            </div>
+
+            <!-- Formulario de generación de reportes -->
+            <div class="table-container animate-slide-in">
+                <div class="table-header">
+                    <h2 class="table-title">Configurar Reporte</h2>
+                </div>
+                <form id="formReporte" onsubmit="generarReporte(event)" style="padding: 2rem;">
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                        <div class="form-group">
+                            <label for="tipoReporte">Tipo de Reporte</label>
+                            <select id="tipoReporte" required>
+                                <option value="">Seleccione...</option>
+                                <option value="general">Resumen General</option>
+                                <option value="ficha">Por Ficha</option>
+                                <option value="aprendiz">Por Aprendiz</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="reporteFicha">Ficha</label>
+                            <select id="reporteFicha" onchange="cargarAprendicesFicha()" required>
+                                <option value="">Seleccione...</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="groupAprendiz" style="display: none;">
+                            <label for="reporteAprendiz">Aprendiz</label>
+                            <select id="reporteAprendiz">
+                                <option value="">Todos los aprendices</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="reporteFechaInicio">Fecha Inicio</label>
+                            <input type="date" id="reporteFechaInicio" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reporteFechaFin">Fecha Fin</label>
+                            <input type="date" id="reporteFechaFin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="formatoReporte">Formato</label>
+                            <select id="formatoReporte" required>
+                                <option value="pdf">PDF</option>
+                                <option value="excel">Excel</option>
+                                <option value="csv">CSV</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                        <button type="submit" class="btn btn-primary">
+                            <svg style="width: 20px; height: 20px; margin-right: 0.5rem;" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            Generar Reporte
+                        </button>
+                        <button type="button" onclick="previsualizarReporte()" class="btn btn-secondary">
+                            <svg style="width: 20px; height: 20px; margin-right: 0.5rem;" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                            Previsualizar
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Previsualización del reporte -->
+            <div id="previsualizacion" class="table-container animate-slide-in"
+                style="animation-delay: 0.2s; display: none;">
+                <div class="table-header">
+                    <h2 class="table-title">Previsualización del Reporte</h2>
+                </div>
+                <div id="contenidoPrevia" style="padding: 2rem;">
+                    <!-- Se llenará dinámicamente -->
+                </div>
+            </div>
+
+            <!-- Historial de reportes generados -->
+            <div class="table-container animate-slide-in" style="animation-delay: 0.3s;">
+                <div class="table-header">
+                    <h2 class="table-title">Mis Reportes</h2>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha Generación</th>
+                                <th>Tipo</th>
+                                <th>Ficha</th>
+                                <th>Periodo</th>
+                                <th>Formato</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historialReportes">
+                            <tr>
+                                <td>2024-01-15 10:30</td>
+                                <td>Resumen General</td>
+                                <td>2558934</td>
+                                <td>01/01/2024 - 15/01/2024</td>
+                                <td>PDF</td>
+                                <td>
+                                    <button class="btn-icon" title="Descargar">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- PDF Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+    <script src="js/shared/auth.js"></script>
+    <script src="js/instructor/instructor-reportes.js"></script>
+    <script>
+        if (!authSystem.isAuthenticated() || authSystem.getCurrentUser().role !== 'instructor') {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>

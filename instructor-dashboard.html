@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Instructor - AsistNet</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="sidebar-logo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" class="sidebar-logo-svg">
+                            <path fill="currentColor" d="M100 40L160 70V130L100 160L40 130V70L100 40Z" />
+                            <circle cx="100" cy="100" r="25" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="sidebar-title">AsistNet</div>
+                        <div class="sidebar-subtitle">Instructor</div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <!-- Cambiado de <a> a <button> para evitar navegación automática -->
+                <button onclick="window.location.href='instructor-dashboard.html'" class="nav-item active">
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    <span>Panel Principal</span>
+                </button>
+                <button onclick="window.location.href='instructor-registrar.html'" class="nav-item">
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                    </svg>
+                    <span>Registrar Asistencia</span>
+                </button>
+                <button onclick="window.location.href='instructor-asistencias.html'" class="nav-item">
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                    <span>Consultar Asistencias</span>
+                </button>
+                <button onclick="window.location.href='instructor-reportes.html'" class="nav-item">
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span>Generar Reportes</span>
+                </button>
+                <button onclick="authSystem.logout()" class="nav-item">
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    <span>Cerrar Sesión</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header" style="text-align: center;">
+                <h1 class="content-title">Panel de Instructor</h1>
+                <p class="content-description">Gestión de asistencias y reportes</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card animate-slide-in">
+                    <div class="stat-header">
+                        <div class="stat-icon" style="background: rgba(255, 107, 0, 0.1); color: #FF6B00;">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-value" id="statFichas">0</div>
+                    <div class="stat-label">Fichas Asignadas</div>
+                </div>
+
+                <div class="stat-card animate-slide-in" style="animation-delay: 0.1s;">
+                    <div class="stat-header">
+                        <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-value" id="statAsistencia">0%</div>
+                    <div class="stat-label">Asistencia Hoy</div>
+                </div>
+
+                <div class="stat-card animate-slide-in" style="animation-delay: 0.2s;">
+                    <div class="stat-header">
+                        <div class="stat-icon" style="background: rgba(59, 130, 246, 0.1); color: #3B82F6;">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-value" id="statAprendices">0</div>
+                    <div class="stat-label">Total Aprendices</div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="table-container animate-slide-in" style="animation-delay: 0.3s;">
+                <div class="table-header">
+                    <h2 class="table-title">Acciones Rápidas</h2>
+                </div>
+                <div
+                    style="padding: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <a href="instructor-registrar.html" class="btn btn-primary"
+                        style="height: 60px; font-size: 1.125rem;">
+                        <svg style="width: 24px; height: 24px; margin-right: 0.5rem;" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                        Registrar Asistencia
+                    </a>
+                    <a href="instructor-reportes.html" class="btn"
+                        style="height: 60px; font-size: 1.125rem; background: var(--muted); color: var(--foreground);">
+                        <svg style="width: 24px; height: 24px; margin-right: 0.5rem;" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Ver Reportes
+                    </a>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="table-container animate-slide-in" style="animation-delay: 0.4s;">
+                <div class="table-header">
+                    <h2 class="table-title">Asistencias Recientes</h2>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Ficha</th>
+                                <th>Presentes</th>
+                                <th>Ausentes</th>
+                                <th>Total</th>
+                                <th>Porcentaje</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaActividadReciente">
+                            <!-- Se llenará dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/shared/auth.js"></script>
+    <script src="js/instructor/instructor-dashboard.js"></script>
+    <script>
+        if (!authSystem.isAuthenticated() || authSystem.getCurrentUser().role !== 'instructor') {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>

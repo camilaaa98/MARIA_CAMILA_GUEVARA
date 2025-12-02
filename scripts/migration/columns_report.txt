@@ -1,0 +1,41 @@
+Leyendo archivo: C:\wamp64\www\YanguasEjercicios\mockups-asist-net\database\Aprendices.xlsx
+
+=== COLUMNAS ENCONTRADAS ===
+'id_aprendiz'
+'tipo_identificacion'
+'documento'
+'nombre'
+'apellido'
+'correo'
+'id_ficha'
+'estado'
+'celular'
+'nombre_programa'
+'nivel_formacion'
+
+=== MUESTRA DE DATOS (Primeras 10 filas) ===
+   id_ficha     celular
+0   2277866  3214826707
+1   2277866  3212002833
+2   2277866  3102303173
+3   2277866         NaN
+4   2277866  3208805504
+5   2277866  3503430414
+6   2277866  3227094320
+7   2277866  3125447311
+8   2277866  3187992152
+9   2277866  3144904139
+
+=== TIPOS DE DATOS ===
+id_aprendiz             int64
+tipo_identificacion    object
+documento               int64
+nombre                 object
+apellido               object
+correo                 object
+id_ficha                int64
+estado                 object
+celular                object
+nombre_programa        object
+nivel_formacion        object
+dtype: object

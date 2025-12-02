@@ -1,0 +1,19 @@
+ESTRUCTURA DE APRENDICES.XLSX
+=============================
+
+HOJA: 'aprendices'
+  Columnas: ['id_aprendiz', 'tipo_identificacion', 'documento', 'nombre', 'apellido', 'correo', 'celular', 'id_ficha', 'estado']
+  Filas: 1891
+----------------------------------------
+HOJA: 'asistencias'
+  Columnas: ['id_asistencia', 'id_aprendiz', 'id_usuario', 'fecha', 'hora_entrada', 'hora_salida', 'tipo', 'observaciones']
+  Filas: 1891
+----------------------------------------
+HOJA: 'fichas'
+  Columnas: ['id_ficha', 'numero_ficha', 'nombre_programa', 'jornada', 'estado', 'intructor_lider']
+  Filas: 392
+----------------------------------------
+HOJA: 'programas_formacion'
+  Columnas: ['id_programa', 'nombre_programa', 'nivel_formacion']
+  Filas: 41
+----------------------------------------

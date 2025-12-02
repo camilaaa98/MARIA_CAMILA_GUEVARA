@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Asistencias - AsistNet</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="sidebar-logo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" class="sidebar-logo-svg">
+                            <path fill="currentColor" d="M100 40L160 70V130L100 160L40 130V70L100 40Z" />
+                            <circle cx="100" cy="100" r="25" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="sidebar-title">AsistNet</div>
+                        <div class="sidebar-subtitle">Instructor</div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button onclick="window.location.href='instructor-dashboard.html'" class="nav-item">
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    <span>Panel Principal</span>
+                </button>
+                <button onclick="window.location.href='instructor-registrar.html'" class="nav-item">
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                    </svg>
+                    <span>Registrar Asistencia</span>
+                </button>
+                <button onclick="window.location.href='instructor-asistencias.html'" class="nav-item active">
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                    <span>Consultar Asistencias</span>
+                </button>
+                <button onclick="window.location.href='instructor-reportes.html'" class="nav-item">
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span>Generar Reportes</span>
+                </button>
+                <button onclick="authSystem.logout()" class="nav-item">
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    <span>Cerrar Sesión</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header" style="text-align: center;">
+                <h1 class="content-title">Consultar Asistencias</h1>
+                <p class="content-description">Historial de asistencias registradas</p>
+            </div>
+
+            <!-- Filtros de búsqueda -->
+            <div class="table-container animate-slide-in">
+                <div class="table-header">
+                    <h2 class="table-title">Filtros de Búsqueda</h2>
+                </div>
+                <div style="padding: 1.5rem;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label for="filtroFicha">Ficha</label>
+                            <select id="filtroFicha" onchange="filtrarAsistencias()">
+                                <option value="">Todas mis fichas</option>
+                                <!-- Las opciones se cargarán dinámicamente -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="filtroFechaInicio">Fecha Inicio</label>
+                            <input type="date" id="filtroFechaInicio" onchange="filtrarAsistencias()">
+                        </div>
+                        <div class="form-group">
+                            <label for="filtroFechaFin">Fecha Fin</label>
+                            <input type="date" id="filtroFechaFin" onchange="filtrarAsistencias()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla de Asistencias -->
+            <div class="table-container animate-slide-in" style="animation-delay: 0.2s;">
+                <div class="table-header">
+                    <h2 class="table-title">Registros de Asistencia</h2>
+                    <div class="table-actions">
+                        <button onclick="exportarAsistencias()" class="btn btn-sm"
+                            style="background: var(--muted); color: var(--foreground);">Exportar</button>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Ficha</th>
+                                <th>Presentes</th>
+                                <th>Ausentes</th>
+                                <th>Total</th>
+                                <th>% Asistencia</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaAsistencias">
+                            <!-- Se llenará dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/shared/auth.js"></script>
+    <script src="js/instructor/instructor-asistencias.js"></script>
+    <script>
+        if (!authSystem.isAuthenticated() || authSystem.getCurrentUser().role !== 'instructor') {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>

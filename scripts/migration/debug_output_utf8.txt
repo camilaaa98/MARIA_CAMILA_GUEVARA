@@ -1,0 +1,63 @@
+--- INSPECCIÓN DE EXCEL ---
+Hojas encontradas: ['aprendices', 'asistencias', 'fichas', 'programas_formacion']
+
+--- Hoja: aprendices ---
+Total filas en Excel: 1890
+Columnas: ['id_aprendiz', 'tipo_identificacion', 'documento', 'nombre', 'apellido', 'correo', 'id_ficha', 'estado', 'celular', 'nombre_programa', 'nivel_formacion']
+Primeras filas:
+   id_aprendiz  ...    nivel_formacion
+0            1  ...  TECNICO-TECNOLOGO
+1            2  ...  TECNICO-TECNOLOGO
+2            3  ...  TECNICO-TECNOLOGO
+
+[3 rows x 11 columns]
+
+--- Hoja: asistencias ---
+Total filas en Excel: 1890
+Columnas: ['id_asiatencia', 'id_aprendiz', 'id_usuario', 'fecha', 'hora_entrada', 'hora_salida', 'tipo', 'observaciones']
+Primeras filas:
+   id_asiatencia  ...  observaciones
+0              1  ...            NaN
+1              2  ...            NaN
+2              3  ...            NaN
+
+[3 rows x 8 columns]
+
+--- Hoja: fichas ---
+Total filas en Excel: 1890
+Columnas: ['id_ficha', 'numero_ficha', 'id_programa', 'jornada', 'estado']
+Primeras filas:
+   id_ficha  ...        estado
+0         1  ...  EN FORMACION
+1         2  ...  EN FORMACION
+2         3  ...  EN FORMACION
+
+[3 rows x 5 columns]
+
+--- Hoja: programas_formacion ---
+Total filas en Excel: 1890
+Columnas: ['id_programa', 'nombre_programa', 'nivel_formacion']
+Primeras filas:
+   id_programa  ...    nivel_formacion
+0            1  ...  TECNICO-TECNOLOGO
+1            2  ...  TECNICO-TECNOLOGO
+2            3  ...  TECNICO-TECNOLOGO
+
+[3 rows x 3 columns]
+
+--- INSPECCIÓN DE BASE DE DATOS ---
+Tabla 'programas_formacion': 41 registros
+Columnas DB: ['id_programa', 'nombre_programa', 'nivel_formacion']
+(1, 'GESTIÓN DE EMPRESAS AGROPECUARIAS', 'TECNICO-TECNOLOGO')
+(2, 'GESTION DOCUMENTAL', 'TECNICO-TECNOLOGO')
+(3, 'ANIMACION 3D', 'TECNICO-TECNOLOGO')
+Tabla 'fichas': 72 registros
+Columnas DB: ['id_ficha', 'numero_ficha', 'id_programa', 'jornada', 'estado']
+(1, '2277866', 1, 'NO DEFINIDA', 'EN FORMACION')
+(2, '2339893', 1, 'NO DEFINIDA', 'EN FORMACION')
+(3, '2364996', 1, 'NO DEFINIDA', 'EN FORMACION')
+Tabla 'aprendices': 3776 registros
+Columnas DB: ['id_aprendiz', 'tipo_identificacion', 'documento', 'nombre', 'apellido', 'correo', 'id_ficha', 'estado', 'celular']
+(1, None, '1006459050', 'LEIDY DAYANA', 'TRUJILLO CUCHUMBE', 'leydidayana2020@gmail.com', 2277866, 'EN FORMACION', None)
+(2, None, '1006501929', 'YURLEY YURANY', 'CARABALI RAMOS', 'yurleiramos2001@gmail.com', 2277866, 'EN FORMACION', None)
+(3, None, '1006507410', 'CRISTIAN CAMILO', 'CARVAJAL RODRIGUEZ', 'carvajalrodriguezc447@gmail.com', 2277866, 'EN FORMACION', None)

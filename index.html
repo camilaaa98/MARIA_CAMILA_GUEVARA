@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de Gestión de Asistencias SENA - AsistNet">
+    <title>AsistNet - Sistema de Gestión de Asistencias SENA</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="loading-screen">
+            <div class="loading-content">
+                <div class="logo-container animate-pulse-glow">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" class="logo-svg">
+                        <path fill="currentColor" d="M100 20L180 60V140L100 180L20 140V60L100 20Z" opacity="0.3" />
+                        <path fill="currentColor" d="M100 40L160 70V130L100 160L40 130V70L100 40Z" />
+                        <circle cx="100" cy="100" r="25" fill="currentColor" />
+                    </svg>
+                </div>
+                <h1 class="loading-title">AsistNet</h1>
+                <p class="loading-subtitle">Sistema de Gestión de Asistencias</p>
+                <div class="spinner"></div>
+            </div>
+        </div>
+
+        <!-- Particles Background -->
+        <div id="particles-bg" class="particles-bg"></div>
+
+        <!-- Login Screen -->
+        <div id="login-screen" class="login-container" style="display: none;">
+            <div class="card login-card animate-slide-in">
+                <div class="card-header">
+                    <div class="logo-container animate-pulse-glow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" class="logo-svg">
+                            <path fill="currentColor" d="M100 20L180 60V140L100 180L20 140V60L100 20Z" opacity="0.3" />
+                            <path fill="currentColor" d="M100 40L160 70V130L100 160L40 130V70L100 40Z" />
+                            <circle cx="100" cy="100" r="25" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <div class="header-text">
+                        <h1 class="card-title gradient-text">AsistNet</h1>
+                        <p class="card-description">Sistema de Gestión de Asistencias SENA</p>
+                    </div>
+                </div>
+
+                <div class="card-content">
+                    <form id="login-form" class="login-form">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <div class="input-wrapper">
+                                <input type="email" id="email" class="form-input" placeholder="usuario@sena.edu.co"
+                                    required>
+                                <span class="validation-icon"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="password" class="form-input" placeholder="••••••••" required>
+                                <span class="validation-icon"></span>
+                            </div>
+                        </div>
+
+                        <div id="error-message" class="error-message" style="display: none;"></div>
+
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+
+                        <div class="credentials-info">
+                            <p class="info-text">
+                                Credenciales de prueba:<br>
+                                <span class="credential">admin@sena.edu.co</span> o
+                                <span class="credential">instructor@sena.edu.co</span>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/particles.js"></script>
+    <script src="js/shared/auth.js"></script>
+    <script src="js/shared/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+Leyendo archivo: C:\wamp64\www\YanguasEjercicios\mockups-asist-net\database\Aprendices.xlsx
+Hoja: programas_formacion
+
+=== COLUMNAS ===
+'id_programa'
+'ficha'
+'nombre_programa'
+'nivel_formacion'
+
+=== MUESTRA DE DATOS (Primeras 5 filas) ===
+   id_programa  ...  nivel_formacion
+0          1.0  ...        TECNOLOGO
+1          2.0  ...        TECNOLOGO
+2          3.0  ...        TECNOLOGO
+3          4.0  ...        TECNOLOGO
+4          5.0  ...        TECNOLOGO
+
+[5 rows x 4 columns]
