@@ -1,6 +1,0 @@
---- Verification Report ---
-Programas: Excel=40, DB=41 -> MISMATCH
-Fichas: Excel=74, DB=72 -> MISMATCH
-Aprendices: Excel=1890, DB=1886 -> MISMATCH
-Fichas without Program: 0 -> OK
-Aprendices without Ficha: 0 -> OK

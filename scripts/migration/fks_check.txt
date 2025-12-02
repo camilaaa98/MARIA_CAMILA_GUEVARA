@@ -1,2 +1,0 @@
-(0, 0, 'usuarios', 'id_usuario', 'id_usuario', 'NO ACTION', 'NO ACTION', 'NONE')
-(1, 0, 'aprendices_temp', 'id_aprendiz', 'id_aprendiz', 'NO ACTION', 'NO ACTION', 'NONE')
